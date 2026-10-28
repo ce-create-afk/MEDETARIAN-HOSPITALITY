@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital MEDITARIAN HOSPITALITY</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="topbar">
+        <div>
+            <p class="eyebrow">HOSPITAL FOOD SERVICES</p>
+            <h1>MEDITARIAN HOSPITALITY</h1>
+            <p class="subtitle">Weekly Meal Schedule</p>
+        </div>
+        <div class="logo">HC</div>
+    </header>
+
+    <main class="container">
+
+        <section class="panel access-panel">
+            <div>
+                <h2>Workspace</h2>
+                <p class="muted">
+                    Manage the weekly menu or view the kitchen schedule.
+                </p>
+            </div>
+
+            <div class="role-switch">
+                <button class="role-button active"
+                        data-view="kitchen" type="button">
+                    Kitchen View
+                </button>
+
+                <button class="role-button"
+                        data-view="manager" type="button">
+                    Manager View
+                </button>
+            </div>
+        </section>
+
+        <div class="status-row">
+            <span id="connection-dot" class="status-dot"></span>
+            <span id="connection-status">Loading menu...</span>
+            <span id="last-updated">Waiting for data</span>
+        </div>
+
+        <section id="manager-tools" class="panel" hidden>
+            <h2>Edit Weekly Menu</h2>
+            <p class="muted">
+                Select a day and meal, enter the details, and save.
+            </p>
+
+            <form id="menu-form">
+                <div class="form-grid">
+
+                    <label for="edit-day">Day</label>
+                    <select id="edit-day" required>
+                        <option>Sunday</option>
+                        <option>Monday</option>
+                        <option>Tuesday</option>
+                        <option>Wednesday</option>
+                        <option>Thursday</option>
+                        <option>Friday</option>
+                        <option>Saturday</option>
+                    </select>
+
+                    <label for="edit-meal">Meal</label>
+                    <select id="edit-meal" required>
+                        <option value="breakfast">Breakfast</option>
+                        <option value="lunch">Lunch</option>
+                        <option value="dinner">Dinner</option>
+                    </select>
+
+                    <label for="main-dish">Main Dish</label>
+                    <input
+                        type="text"
+                        id="main-dish"
+                        placeholder="Enter the main dish"
+                        maxlength="120"
+                        required
+                    >
+
+                    <label for="extras">Extras</label>
+                    <input
+                        type="text"
+                        id="extras"
+                        placeholder="Salad, juice, sauce..."
+                        maxlength="180"
+                    >
+
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="button-primary">
+                        Save Meal
+                    </button>
+                    <span id="save-message" role="status"></span>
+                </div>
+            </form>
+        </section>
+
+        <section class="menu-section">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">SUNDAY — SATURDAY</p>
+                    <h2 id="menu-heading">Kitchen Schedule</h2>
+                </div>
+                <p class="muted">Breakfast · Lunch · Dinner</p>
+            </div>
+
+            <div id="weekly-menu" class="weekly-menu">
+                <div class="loading-card">Loading weekly menu...</div>
+            </div>
+        </section>
+
+        <footer>
+            <p>Hospital Cafeteria | Food Services</p>
+            <p>Weekly menu management system</p>
+        </footer>
+
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
